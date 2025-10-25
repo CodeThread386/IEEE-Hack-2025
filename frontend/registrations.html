@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IEEE Hackathon 2025 | Team Registration</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 98'%3E%3Cstyle%3E.fil1%7Bfill:%23FFFFFF%7D%3C/style%3E%3Cg%3E%3Cpath class='fil1' d='M54 12c3,3 6,7 8,10l7 7c7,6 13,11 20,16l0 0c1,1 2,2 2,3 0,2 -3,3 -4,4 -14,10 -26,22 -36,36l-1 1c0,0 -1,0 -2,0 -1,-1 -1,-2 -2,-2 -2,-4 -5,-7 -7,-10 -2,-1 -3,-3 -4,-4 -8,-9 -17,-17 -26,-23 -1,-1 -2,-2 -1,-3 0,-1 1,-2 2,-2 12,-8 23,-19 32,-30l5 -8c1,0 2,-1 3,0 0,0 1,0 1,1l3 4zm-8 6c-2,2 -5,4 -7,6 -1,0 -1,1 -1,1 -6,5 -12,11 -16,17 -2,2 -3,3 -4,5 0,2 0,3 1,3 4,6 9,12 15,17 4,4 9,9 14,11 2,1 4,0 5,-1 7,-5 14,-11 20,-18 2,-3 5,-6 7,-10 0,-2 0,-3 -1,-4 -5,-7 -10,-13 -17,-19l0 0c-2,-2 -5,-4 -7,-6 -2,-2 -6,-4 -9,-2z'/%3E%3Cpath class='fil1' d='M55 22c8,7 16,15 22,24 1,1 2,3 1,4 -2,2 -4,5 -6,7l0 0c-5,6 -10,11 -16,16 -3,1 -5,5 -9,3 -8,-6 -16,-14 -23,-22 -1,-1 -3,-3 -3,-5 -1,-2 1,-4 2,-6 7,-9 16,-17 24,-23 3,-2 6,1 8,2zm-6 3l-1 3 -3 11c0,0 2,0 3,0l0 0 -1 13 0 0c1,0 3,0 4,0l0 -1 0 -12 0 0 3 0c-2,-5 -3,-9 -5,-14l0 0zm-13 18c-2,1 -5,2 -5,5 1,2 2,3 4,4 7,3 17,3 26,1 1,-1 4,-2 5,-5 0,-2 -3,-3 -4,-4l0 0c0,0 1,0 2,0l0 0c-3,-1 -6,-2 -8,-2 0,1 1,2 1,3 1,0 2,0 2,0 2,0 4,1 4,3 0,1 -2,2 -3,3 -6,2 -12,2 -19,1 -1,-1 -4,-2 -4,-4 1,-3 4,-3 7,-4 -1,-1 -3,-2 -4,-3 -1,1 -3,1 -4,2zm11 12c0,4 0,9 -1,13 2,0 4,0 6,0l-1 -12 0 -1c-1,0 -2,0 -4,0z'/%3E%3C/g%3E%3C/svg%3E" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --primary-background: #0D0D2B;
+          --card-surface: #1E1E4B;
+          --accent-yellow: #FFC700;
+          --text-default: #FFFFFF;
+          --text-secondary: #A0A0C0;
+          --border-color: #3D3D6B;
+          --gradient-start: #4A4AFF;
+          --gradient-end: #A04AFF;
+        }
+      }
+      @layer utilities {
+        .arcade-shadow {
+          box-shadow: 4px 4px 0px 0px var(--accent-yellow);
+        }
+        .arcade-shadow-hover {
+          box-shadow: 6px 6px 0px 0px var(--accent-yellow);
+        }
+        .arcade-shadow-sm {
+          box-shadow: 2px 2px 0px 0px var(--accent-yellow);
+        }
+        .btn-gradient {
+          background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        }
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-background": "var(--primary-background)",
+              "card-surface": "var(--card-surface)",
+              "accent-yellow": "var(--accent-yellow)",
+              "text-default": "var(--text-default)",
+              "text-secondary": "var(--text-secondary)",
+              "border-color": "var(--border-color)",
+              error: "#D93025",
+              success: "#1E8E3E",
+            },
+            fontFamily: {
+              display: ["'Press Start 2P'", "cursive"],
+              body: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .form-input, .form-select {
+        @apply bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary;
+      }
+      
+      .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23A0A0C0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+      }
+
+      /* Ambient background orbs */
+      .bg-orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+        animation: float-orb 20s ease-in-out infinite;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(74, 74, 255, 0.4), transparent);
+        top: 10%;
+        right: 10%;
+        animation-delay: 0s;
+      }
+
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(160, 74, 255, 0.4), transparent);
+        bottom: 10%;
+        left: 5%;
+        animation-delay: 7s;
+      }
+
+      .orb-3 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(255, 199, 0, 0.3), transparent);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 14s;
+      }
+
+      @keyframes float-orb {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(30px, -30px) scale(1.1);
+        }
+        50% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+        75% {
+          transform: translate(20px, 30px) scale(1.05);
+        }
+      }
+
+      /* Animated grid tiles */
+      .grid-tile {
+        width: 50px;
+        height: 50px;
+        border: 1px solid rgba(61, 61, 107, 0.1);
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .grid-tile.glow-yellow {
+        background: linear-gradient(135deg, rgba(255, 199, 0, 0.2), rgba(255, 165, 0, 0.2));
+        border-color: rgba(255, 199, 0, 0.4);
+        box-shadow: 0 0 20px rgba(255, 199, 0, 0.2);
+      }
+
+      .grid-tile.glow-purple {
+        background: linear-gradient(135deg, rgba(160, 74, 255, 0.2), rgba(138, 43, 226, 0.2));
+        border-color: rgba(160, 74, 255, 0.4);
+        box-shadow: 0 0 20px rgba(160, 74, 255, 0.2);
+      }
+
+      .grid-tile.glow-blue {
+        background: linear-gradient(135deg, rgba(74, 74, 255, 0.2), rgba(30, 144, 255, 0.2));
+        border-color: rgba(74, 74, 255, 0.4);
+        box-shadow: 0 0 20px rgba(74, 74, 255, 0.2);
+      }
+
+      @keyframes randomGlow {
+        0% {
+          opacity: 0;
+          transform: scale(1);
+        }
+        20% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1);
+        }
+      }
+
+      .grid-tile.random-glow {
+        animation: randomGlow 2.5s ease-in-out forwards;
+      }
+
+      /* Enhanced card animations */
+      .enhanced-card {
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .enhanced-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--accent-yellow));
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: -1;
+      }
+
+      .enhanced-card:hover::before {
+        opacity: 0.3;
+        animation: border-glow 2s ease-in-out infinite;
+      }
+
+      .enhanced-card.has-focus::before {
+        opacity: 0.4;
+        animation: border-glow 2s ease-in-out infinite;
+      }
+
+      @keyframes border-glow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.5; }
+      }
+
+      .enhanced-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .enhanced-card.has-focus {
+        transform: translateY(-4px);
+      }
+
+      /* Member card animations */
+      .member-card {
+        animation: slideInUp 0.5s ease-out;
+        transform-origin: top;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Progress indicator */
+      .progress-step {
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .progress-step::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 100%;
+        height: 2px;
+        background: var(--border-color);
+        transform: translateY(-50%);
+      }
+
+      .progress-step:last-child::after {
+        display: none;
+      }
+
+      .progress-step.active .step-circle {
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        box-shadow: 0 0 20px rgba(74, 74, 255, 0.5);
+      }
+
+      .progress-step.completed .step-circle {
+        background: var(--accent-yellow);
+        box-shadow: 0 0 15px rgba(255, 199, 0, 0.4);
+      }
+
+      /* Glow text effect */
+      .glow-text {
+        text-shadow: 0 0 20px rgba(255, 199, 0, 0.3);
+      }
+
+      /* Pulse animation for buttons */
+      @keyframes pulse-glow {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(255, 199, 0, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 20px 10px rgba(255, 199, 0, 0);
+        }
+      }
+
+      .btn-pulse {
+        animation: pulse-glow 2s infinite;
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Content wrapper for layering */
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Character counter animation */
+      #char-count {
+        transition: color 0.3s;
+      }
+
+      #char-count.warning {
+        color: #FFA500;
+      }
+
+      #char-count.danger {
+        color: #D93025;
+      }
+    </style>
+  </head>
+
+  <body class="bg-primary-background font-body text-text-default overflow-x-hidden">
+    <!-- Ambient background effects -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden pt-20 content-wrapper">
+      <header class="flex items-center justify-between whitespace-nowrap border-b-2 border-border-color px-6 sm:px-10 md:px-20 lg:px-40 py-4 bg-primary-background/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 w-full">
+        <a href="https://ieeevit.org/">
+          <div class="flex items-center gap-4 rounded-full px-4 py-2 transition-all duration-200 transform hover:bg-card-surface hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100">
+            <div class="w-10 h-10">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 98">
+                <style>.fil1{fill:#FFFFFF}</style>
+                <g>
+                  <path class="fil1" d="M54 12c3,3 6,7 8,10l7 7c7,6 13,11 20,16l0 0c1,1 2,2 2,3 0,2 -3,3 -4,4 -14,10 -26,22 -36,36l-1 1c0,0 -1,0 -2,0 -1,-1 -1,-2 -2,-2 -2,-4 -5,-7 -7,-10 -2,-1 -3,-3 -4,-4 -8,-9 -17,-17 -26,-23 -1,-1 -2,-2 -1,-3 0,-1 1,-2 2,-2 12,-8 23,-19 32,-30l5 -8c1,0 2,-1 3,0 0,0 1,0 1,1l3 4zm-8 6c-2,2 -5,4 -7,6 -1,0 -1,1 -1,1 -6,5 -12,11 -16,17 -2,2 -3,3 -4,5 0,2 0,3 1,3 4,6 9,12 15,17 4,4 9,9 14,11 2,1 4,0 5,-1 7,-5 14,-11 20,-18 2,-3 5,-6 7,-10 0,-2 0,-3 -1,-4 -5,-7 -10,-13 -17,-19l0 0c-2,-2 -5,-4 -7,-6 -2,-2 -6,-4 -9,-2z"/>
+                  <path class="fil1" d="M55 22c8,7 16,15 22,24 1,1 2,3 1,4 -2,2 -4,5 -6,7l0 0c-5,6 -10,11 -16,16 -3,1 -5,5 -9,3 -8,-6 -16,-14 -23,-22 -1,-1 -3,-3 -3,-5 -1,-2 1,-4 2,-6 7,-9 16,-17 24,-23 3,-2 6,1 8,2zm-6 3l-1 3 -3 11c0,0 2,0 3,0l0 0 -1 13 0 0c1,0 3,0 4,0l0 -1 0 -12 0 0 3 0c-2,-5 -3,-9 -5,-14l0 0zm-13 18c-2,1 -5,2 -5,5 1,2 2,3 4,4 7,3 17,3 26,1 1,-1 4,-2 5,-5 0,-2 -3,-3 -4,-4l0 0c0,0 1,0 2,0l0 0c-3,-1 -6,-2 -8,-2 0,1 1,2 1,3 1,0 2,0 2,0 2,0 4,1 4,3 0,1 -2,2 -3,3 -6,2 -12,2 -19,1 -1,-1 -4,-2 -4,-4 1,-3 4,-3 7,-4 -1,-1 -3,-2 -4,-3 -1,1 -3,1 -4,2zm11 12c0,4 0,9 -1,13 2,0 4,0 6,0l-1 -12 0 -1c-1,0 -2,0 -4,0z"/>
+                </g>
+              </svg>
+            </div>
+            <h2 class="font-display text-lg tracking-wider text-text-default">IEEE VIT</h2>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-8 lg:flex">
+          <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="/index.html">HOME</a>
+          <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="/index.html#about">ABOUT</a>
+          <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="/index.html#tracks">TRACKS</a>
+          <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="/index.html#timeline">TIMELINE</a>
+        </nav>
+
+        <button class="lg:hidden text-text-default">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </header>
+
+      <main class="flex-grow px-4 sm:px-6 md:px-10 py-12">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-10 text-center">
+            <h1 class="font-display text-3xl md:text-4xl text-text-default glow-text mb-4">REGISTER YOUR TEAM</h1>
+            <p class="text-base font-normal leading-normal text-text-secondary max-w-2xl mx-auto">
+              Fill in the details below to complete your registration for the IEEE Hackathon 2025.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div class="lg:col-span-2 space-y-8">
+              <form id="registration-form" class="space-y-8">
+                <!-- Team Information -->
+                <div class="p-6 md:p-8 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow enhanced-card">
+                  <fieldset class="space-y-6">
+                    <legend class="font-display text-lg text-accent-yellow tracking-wide mb-6">TEAM INFORMATION</legend>
+
+                    <div class="p-6 border-2 border-border-color rounded bg-primary-background space-y-6">
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex flex-col">
+                          <label class="text-base font-medium leading-normal pb-2 text-text-default">Team Name</label>
+                          <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" maxlength="50" minlength="3" name="teamName" placeholder="Enter your team's name" required type="text" />
+                        </div>
+
+                        <div class="flex flex-col">
+                          <label class="text-base font-medium leading-normal pb-2 text-text-default">Select Track</label>
+                          <select class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary form-select h-12 px-4" name="track" required>
+                            <option disabled selected value="">Choose a hackathon track</option>
+                            <option value="ai-ml">AI &amp; Machine Learning</option>
+                            <option value="blockchain">Blockchain &amp; Fintech</option>
+                            <option value="iot">IoT &amp; Smart Cities</option>
+                            <option value="healthtech">HealthTech</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <!-- Team Members -->
+                <div class="p-6 md:p-8 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow enhanced-card">
+                  <h2 class="font-display text-lg text-accent-yellow tracking-wide mb-6">TEAM MEMBERS</h2>
+
+                  <div class="space-y-6" id="team-members-container">
+                    <!-- Member 1 (Leader) -->
+                    <div class="member-card p-6 border-2 border-border-color rounded bg-primary-background space-y-4 relative">
+                      <div class="flex justify-between items-center">
+                        <p class="font-bold text-accent-yellow">Member 1 (Team Leader)</p>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[1][name]" placeholder="Full Name" required type="text" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[1][email]" placeholder="Email Address" required type="email" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[1][college]" placeholder="College/University" required type="text" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[1][regNo]" placeholder="Registration Number" required type="text" />
+                      </div>
+
+                      <select class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary form-select h-12 px-4 w-full" name="members[1][gender]" required>
+                        <option disabled selected value="">Select Gender</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                      </select>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="member-card p-6 border-2 border-border-color rounded bg-primary-background space-y-4 relative">
+                      <div class="flex justify-between items-center">
+                        <p class="font-bold">Member 2</p>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[2][name]" placeholder="Full Name" required type="text" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[2][email]" placeholder="Email Address" required type="email" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[2][college]" placeholder="College/University" required type="text" />
+                        <input class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary h-12 px-4" name="members[2][regNo]" placeholder="Registration Number" required type="text" />
+                      </div>
+
+                      <select class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary form-select h-12 px-4 w-full" name="members[2][gender]" required>
+                        <option disabled selected value="">Select Gender</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs bg-card-surface border-2 border-border-color hover:bg-border-color/50 text-text-default arcade-shadow-sm transition-all duration-200 transform hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100 h-12 px-6 mt-8" id="add-member-btn" type="button">
+                    <span class="material-symbols-outlined text-base">add</span>
+                    <span class="font-display text-xs tracking-wide ml-2">ADD MEMBER</span>
+                  </button>
+                </div>
+
+                <!-- Project Idea -->
+                <div class="p-6 md:p-8 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow enhanced-card">
+                  <fieldset class="space-y-6">
+                    <legend class="font-display text-lg text-accent-yellow tracking-wide mb-6">PROJECT IDEA</legend>
+
+                    <div class="p-6 border-2 border-border-color rounded bg-primary-background space-y-4">
+                      <div class="flex flex-col">
+                        <div class="flex justify-between items-baseline pb-2">
+                          <label class="text-base font-medium leading-normal text-text-default">Problem Statement</label>
+                          <p class="text-xs text-text-secondary"><span id="char-count">0</span> / 300</p>
+                        </div>
+                        <textarea id="problem-statement" class="bg-primary-background border-2 border-border-color text-text-default rounded focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow placeholder:text-text-secondary min-h-32 p-4 w-full resize-none" maxlength="300" minlength="30" name="problem" placeholder="Describe the problem you are solving (30-300 characters)" required></textarea>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="flex items-center justify-end" style="margin-top: 75px; margin-bottom: -60px;">
+                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 btn-gradient hover:shadow-[6px_6px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-10 btn-pulse" type="submit" >
+                    REGISTER TEAM
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1 space-y-8 sticky top-28">
+              <div class="p-6 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow enhanced-card">
+                <h3 class="font-display text-lg text-accent-yellow tracking-wide mb-4">BEFORE YOU REGISTER</h3>
+                <ul class="space-y-4 text-text-secondary">
+                  <li class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-accent-yellow mt-1">location_on</span>
+                    <div>
+                      <p class="font-semibold text-text-default">Location</p>
+                      <a href="https://maps.app.goo.gl/EDoy1vrS1kmp4V8Y9" target="_blank" rel="noopener noreferrer" class="text-sm text-accent-yellow hover:underline">VIT Vellore</a>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-accent-yellow mt-1">event</span>
+                    <div>
+                      <p class="font-semibold text-text-default">Event Dates</p>
+                      <p class="text-sm">Dec 6, 2025: 8 a.m. to 8 p.m.</p>
+                      <p class="text-sm">Dec 7, 2025: 8 a.m. to 8 p.m.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-accent-yellow mt-1">groups</span>
+                    <div>
+                      <p class="font-semibold text-text-default">Team Size</p>
+                      <p class="text-sm">Teams must have 2 to 5 members.</p>
+                    </div>
+                  </li>
+
+                  <li class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-accent-yellow mt-1">event</span>
+                    <div>
+                      <p class="font-semibold text-text-default">Registration Deadline</p>
+                      <p class="text-sm">December 5, 2025 @ 11:59 PM</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="p-6 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow enhanced-card">
+                <h3 class="font-display text-sm text-accent-yellow tracking-wide mb-4">NEED HELP?</h3>
+                <div class="space-y-3">
+                  <a href="/index.html#contact" class="flex items-center gap-2 text-text-secondary hover:text-accent-yellow transition-colors text-sm">
+                    <span class="material-symbols-outlined text-base">support_agent</span>
+                    <span>Contact Support</span>
+                  </a>
+                  <a href="/index.html#timeline" class="flex items-center gap-2 text-text-secondary hover:text-accent-yellow transition-colors text-sm">
+                    <span class="material-symbols-outlined text-base">schedule</span>
+                    <span>View Timeline</span>
+                  </a>
+                  <a href="/index.html#tracks" class="flex items-center gap-2 text-text-secondary hover:text-accent-yellow transition-colors text-sm">
+                    <span class="material-symbols-outlined text-base">category</span>
+                    <span>Explore Tracks</span>
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+
+      <footer class="border-t-2 border-border-color bg-card-surface px-6 py-8 md:px-20 lg:px-40 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+          <p class="text-sm text-text-secondary">&copy; 2025 IEEE VIT. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      let memberCount = 2;
+      const maxMembers = 5;
+
+      // Character counter for problem statement
+      const problemTextarea = document.getElementById('problem-statement');
+      const charCountSpan = document.getElementById('char-count');
+
+      problemTextarea.addEventListener('input', function() {
+        const length = this.value.length;
+        charCountSpan.textContent = length;
+
+        if (length > 250) {
+          charCountSpan.classList.add('danger');
+          charCountSpan.classList.remove('warning');
+        } else if (length > 200) {
+          charCountSpan.classList.add('warning');
+          charCountSpan.classList.remove('danger');
+        } else {
+          charCountSpan.classList.remove('warning', 'danger');
+        }
+      });
+
+            
+      // Add member functionality
+      document.getElementById('add-member-btn').addEventListener('click', function() {
+        if (memberCount >= maxMembers) {
+          alert('Maximum 5 members allowed per team');
+          return;
+        }
+
+        memberCount++;
+        const container = document.getElementById('team-members-container');
+        
+        const memberCard = document.createElement('div');
+        memberCard.className = 'member-card p-6 border-2 border-border-color rounded bg-primary-background space-y-4 relative';
+        memberCard.innerHTML = `
+          <div class="flex justify-between items-center">
+            <p class="font-bold">Member ${memberCount}</p>
+            <button type="button" class="text-error hover:text-error/80 transition-colors remove-member" onclick="removeMember(this)">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input class="form-input h-12 px-4" name="members[${memberCount}][name]" placeholder="Full Name" required type="text" />
+            <input class="form-input h-12 px-4" name="members[${memberCount}][email]" placeholder="Email Address" required type="email" />
+            <input class="form-input h-12 px-4" name="members[${memberCount}][college]" placeholder="College/University" required type="text" />
+            <input class="form-input h-12 px-4" name="members[${memberCount}][regNo]" placeholder="Registration Number" required type="text" />
+          </div>
+
+          <select class="form-select h-12 px-4 w-full" name="members[${memberCount}][gender]" required>
+            <option disabled selected value="">Select Gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_to_say">Prefer not to say</option>
+          </select>
+        `;
+
+        container.appendChild(memberCard);
+
+        if (memberCount >= maxMembers) {
+          this.disabled = true;
+          this.classList.add('opacity-50');
+        }
+
+        // Re-setup focus glow for new inputs
+        setupFocusGlow();
+      });
+
+      // Remove member functionality
+      window.removeMember = function(button) {
+        const card = button.closest('.member-card');
+        card.style.animation = 'slideInUp 0.3s ease-out reverse';
+        setTimeout(() => {
+          card.remove();
+          memberCount--;
+          
+          const addBtn = document.getElementById('add-member-btn');
+          addBtn.disabled = false;
+          addBtn.classList.remove('opacity-50');
+        }, 300);
+      };
+
+      // Form submission
+      document.getElementById('registration-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Redirect to success page
+        window.location.href = 'success.html';
+      });
+
+      // Progress indicator animation
+      const form = document.getElementById('registration-form');
+      const progressSteps = document.querySelectorAll('.progress-step');
+
+      form.addEventListener('input', function() {
+        // Check team info completion
+        const teamName = document.querySelector('[name="teamName"]').value;
+        const track = document.querySelector('[name="track"]').value;
+        
+        if (teamName && track) {
+          progressSteps[0].classList.add('completed');
+          progressSteps[1].classList.add('active');
+        }
+
+        // Check members completion
+        const member1Name = document.querySelector('[name="members[1][name]"]').value;
+        const member1Email = document.querySelector('[name="members[1][email]"]').value;
+        const member2Name = document.querySelector('[name="members[2][name]"]').value;
+        const member2Email = document.querySelector('[name="members[2][email]"]').value;
+        
+        if (member1Name && member1Email && member2Name && member2Email) {
+          progressSteps[1].classList.add('completed');
+          progressSteps[2].classList.add('active');
+        }
+
+        // Check project completion
+        const problem = document.querySelector('[name="problem"]').value;
+        
+        if (problem.length >= 30) {
+          progressSteps[2].classList.add('completed');
+        }
+      });
+
+      // Smooth scroll behavior for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Add focus glow to parent cards
+      function setupFocusGlow() {
+        const formInputs = document.querySelectorAll('input, select, textarea');
+        
+        formInputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            // Find the closest enhanced-card parent
+            const parentCard = this.closest('.enhanced-card');
+            if (parentCard) {
+              parentCard.classList.add('has-focus');
+            }
+          });
+          
+          input.addEventListener('blur', function() {
+            // Remove focus class from parent card
+            const parentCard = this.closest('.enhanced-card');
+            if (parentCard) {
+              parentCard.classList.remove('has-focus');
+            }
+          });
+        });
+      }
+
+      // Initialize on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupFocusGlow);
+      } else {
+        setupFocusGlow();
+      }
+    </script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
