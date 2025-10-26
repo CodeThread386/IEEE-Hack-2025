@@ -109,7 +109,6 @@
         animation-play-state: paused;
       }
 
-      /* Interactive Background Grid */
       #interactive-bg {
         position: fixed;
         top: 0;
@@ -181,6 +180,18 @@
         transform: scale(1.05);
       }
 
+      /* Remove side margins/padding from main content on small screens */
+@media (max-width: 504px) {
+  main {
+    padding-top: 10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
       @keyframes fadeOut {
         from {
           background: linear-gradient(135deg, rgba(74, 74, 255, 0.3), rgba(160, 74, 255, 0.3));
@@ -223,7 +234,6 @@
         animation: randomGlow 2.5s ease-in-out forwards;
       }
 
-      /* Floating particles effect */
       @keyframes float {
         0%, 100% {
           transform: translateY(0) translateX(0);
@@ -250,7 +260,6 @@
         pointer-events: none;
       }
 
-      /* Glowing text effect for headings */
       .glow-text {
         text-shadow: 0 0 10px rgba(255, 199, 0, 0.5),
                      0 0 20px rgba(255, 199, 0, 0.3),
@@ -271,7 +280,6 @@
         }
       }
 
-      /* Scanline effect overlay */
       .scanlines {
         position: fixed;
         top: 0;
@@ -297,7 +305,6 @@
         }
       }
 
-      /* Cursor trail effect */
       .cursor-trail {
         position: fixed;
         width: 8px;
@@ -314,7 +321,6 @@
         opacity: 1;
       }
 
-      /* Enhanced card hover effects */
       .enhanced-card-hover {
         position: relative;
         overflow: hidden;
@@ -337,7 +343,6 @@
         opacity: 1;
       }
 
-      /* Parallax scroll effect */
       .parallax-slow {
         transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
@@ -347,127 +352,167 @@
         z-index: 1;
       }
 
-      .content-wrapper {
-        position: relative;
-        z-index: 1;
+      ::-webkit-scrollbar {
+        width: 18px;
+        height: 18px;
       }
 
-      ::-webkit-scrollbar {
-  width: 18px;
-  height: 18px;
+      ::-webkit-scrollbar-track {
+        background: var(--primary-background);
+        border-left: 2px solid var(--border-color);
+        box-shadow: inset 0 0 10px rgba(13, 13, 43, 0.8);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-yellow);
+        border-radius: 10px;
+        border: 2px solid var(--border-color);
+        box-shadow: 
+          0 0 15px rgba(255, 199, 0, 0.6),
+          0 0 25px rgba(255, 199, 0, 0.4),
+          inset 0 0 10px rgba(255, 199, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-yellow);
+        box-shadow: 
+          0 0 20px rgba(255, 199, 0, 0.9),
+          0 0 35px rgba(255, 199, 0, 0.6),
+          inset 0 0 15px rgba(255, 199, 0, 0.5);
+        border-color: var(--accent-yellow);
+        transform: scale(1.05);
+      }
+
+      ::-webkit-scrollbar-thumb:active {
+        background: var(--accent-yellow);
+        box-shadow: 
+          0 0 25px rgba(255, 199, 0, 1),
+          0 0 40px rgba(255, 199, 0, 0.8),
+          inset 0 0 10px rgba(255, 165, 0, 0.6);
+      }
+
+      ::-webkit-scrollbar-corner {
+        background: var(--primary-background);
+        border-left: 2px solid var(--border-color);
+        border-top: 2px solid var(--border-color);
+      }
+
+      * {
+        scrollbar-width: auto;
+        scrollbar-color: var(--accent-yellow) var(--primary-background);
+      }
+
+      @keyframes scrollbar-glow {
+        0%, 100% {
+          box-shadow: 
+            0 0 15px rgba(255, 199, 0, 0.6),
+            0 0 25px rgba(255, 199, 0, 0.4),
+            inset 0 0 10px rgba(255, 199, 0, 0.3);
+        }
+        50% {
+          box-shadow: 
+            0 0 20px rgba(255, 199, 0, 0.8),
+            0 0 35px rgba(255, 199, 0, 0.6),
+            inset 0 0 15px rgba(255, 199, 0, 0.5);
+        }
+      }
+
+      ::-webkit-scrollbar-thumb {
+        animation: scrollbar-glow 3s ease-in-out infinite;
+      }
+
+      /* Mobile-only responsive adjustments - only apply below 1024px */
+      @media (max-width: 1023px) {
+        .grid-square {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .grid-square {
+          width: 30px;
+          height: 30px;
+        }
+        
+        .glow-text {
+          font-size: 2rem;
+        }
+      }
+
+      /* enforce minimum page width */
+html, body {
+  min-width: 365px;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--primary-background);
-  border-left: 2px solid var(--border-color);
-  box-shadow: inset 0 0 10px rgba(13, 13, 43, 0.8);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-yellow);
-  border-radius: 10px;
-  border: 2px solid var(--border-color);
-  box-shadow: 
-    0 0 15px rgba(255, 199, 0, 0.6),
-    0 0 25px rgba(255, 199, 0, 0.4),
-    inset 0 0 10px rgba(255, 199, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-yellow);
-  box-shadow: 
-    0 0 20px rgba(255, 199, 0, 0.9),
-    0 0 35px rgba(255, 199, 0, 0.6),
-    inset 0 0 15px rgba(255, 199, 0, 0.5);
-  border-color: var(--accent-yellow);
-  transform: scale(1.05);
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: var(--accent-yellow);
-  box-shadow: 
-    0 0 25px rgba(255, 199, 0, 1),
-    0 0 40px rgba(255, 199, 0, 0.8),
-    inset 0 0 10px rgba(255, 165, 0, 0.6);
-}
-
-/* Scrollbar corner (when both scrollbars are visible) */
-::-webkit-scrollbar-corner {
-  background: var(--primary-background);
-  border-left: 2px solid var(--border-color);
-  border-top: 2px solid var(--border-color);
-}
-
-/* For Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: var(--accent-yellow) var(--primary-background);
-}
-
-/* Enhanced scrollbar with animated glow */
-@keyframes scrollbar-glow {
-  0%, 100% {
-    box-shadow: 
-      0 0 15px rgba(255, 199, 0, 0.6),
-      0 0 25px rgba(255, 199, 0, 0.4),
-      inset 0 0 10px rgba(255, 199, 0, 0.3);
+/* When viewport < 410px: hide the register btn and center the logo */
+@media (max-width: 450px) {
+  /* center header contents (nav is already hidden on small screens) */
+  header {
+    justify-content: center !important;
   }
-  50% {
-    box-shadow: 
-      0 0 20px rgba(255, 199, 0, 0.8),
-      0 0 35px rgba(255, 199, 0, 0.6),
-      inset 0 0 15px rgba(255, 199, 0, 0.5);
+
+  /* hide the register element */
+  .nav-register {
+    display: none !important;
+    visibility: hidden;
+  }
+
+  /* ensure the logo anchor centers and doesn't have extra left margin */
+  .logo-group {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    /* keep internal layout intact */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-::-webkit-scrollbar-thumb {
-  animation: scrollbar-glow 3s ease-in-out infinite;
-}
     </style>
   </head>
 
   <body class="bg-primary-background font-body text-text-default">
-    <!-- Interactive Background Grid -->
     <div id="interactive-bg"></div>
-    
-    <!-- Mouse Tracker Overlay -->
     <div id="mouse-tracker"></div>
-
-    <!-- Scanlines overlay for retro CRT effect -->
     <div class="scanlines"></div>
-
-    <!-- Cursor trail elements -->
     <div class="cursor-trail" id="trail1"></div>
     <div class="cursor-trail" id="trail2"></div>
     <div class="cursor-trail" id="trail3"></div>
-
-    <!-- Floating particles container -->
     <div id="particles-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></div>
 
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden pt-20 content-wrapper">
+      <!-- Header - Simplified navigation, desktop appearance unchanged -->
       <header class="flex items-center justify-between whitespace-nowrap border-b-2 border-border-color px-6 sm:px-10 md:px-20 lg:px-40 py-4 bg-primary-background/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 w-full">
+        <a href="https://ieeevit.org/">
+          <div class="flex items-center gap-4 rounded-full px-4 py-2 transition-all duration-200 transform hover:bg-card-surface hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100 active:shadow-[1px_1px_0px_0px_#A04AFF]">
+          <div class="w-10 h-10">
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd" viewBox="0 0 100 98">
+                <defs>
+                  <style type="text/css">
+                    <![CDATA[
+                      .fil1 {fill:#FFFFFF}
+                    ]]>
+                  </style>
+                </defs>
+                <g>
+                  <path class="fil1" d="M54 12c3,3 6,7 8,10l7 7c7,6 13,11 20,16l0 0c1,1 2,2 2,3 0,2 -3,3 -4,4 -14,10 -26,22 -36,36l-1 1c0,0 -1,0 -2,0 -1,-1 -1,-2 -2,-2 -2,-4 -5,-7 -7,-10 -2,-1 -3,-3 -4,-4 -8,-9 -17,-17 -26,-23 -1,-1 -2,-2 -1,-3 0,-1 1,-2 2,-2 12,-8 23,-19 32,-30l5 -8c1,0 2,-1 3,0 0,0 1,0 1,1l3 4zm-8 6c-2,2 -5,4 -7,6 -1,0 -1,1 -1,1 -6,5 -12,11 -16,17 -2,2 -3,3 -4,5 0,2 0,3 1,3 4,6 9,12 15,17 4,4 9,9 14,11 2,1 4,0 5,-1 7,-5 14,-11 20,-18 2,-3 5,-6 7,-10 0,-2 0,-3 -1,-4 -5,-7 -10,-13 -17,-19l0 0c-2,-2 -5,-4 -7,-6 -2,-2 -6,-4 -9,-2z"/>
+                  <path class="fil1" d="M55 22c8,7 16,15 22,24 1,1 2,3 1,4 -2,2 -4,5 -6,7l0 0c-5,6 -10,11 -16,16 -3,1 -5,5 -9,3 -8,-6 -16,-14 -23,-22 -1,-1 -3,-3 -3,-5 -1,-2 1,-4 2,-6 7,-9 16,-17 24,-23 3,-2 6,1 8,2zm-6 3l-1 3 -3 11c0,0 2,0 3,0l0 0 -1 13 0 0c1,0 3,0 4,0l0 -1 0 -12 0 0 3 0c-2,-5 -3,-9 -5,-14l0 0zm-13 18c-2,1 -5,2 -5,5 1,2 2,3 4,4 7,3 17,3 26,1 1,-1 4,-2 5,-5 0,-2 -3,-3 -4,-4l0 0c0,0 1,0 2,0l0 0c-3,-1 -6,-2 -8,-2 0,1 1,2 1,3 1,0 2,0 2,0 2,0 4,1 4,3 0,1 -2,2 -3,3 -6,2 -12,2 -19,1 -1,-1 -4,-2 -4,-4 1,-3 4,-3 7,-4 -1,-1 -3,-2 -4,-3 -1,1 -3,1 -4,2zm11 12c0,4 0,9 -1,13 2,0 4,0 6,0l-1 -12 0 -1c-1,0 -2,0 -4,0z"/>
+                </g>
+              </svg>
+            </div>
+            <h2 class="font-display text-lg tracking-wider text-text-default">IEEE VIT</h2>
+          </div>
+        </a>
 
-<a href="https://ieeevit.org/">
-  <div class="flex items-center gap-4 rounded-full px-4 py-2 transition-all duration-200 transform hover:bg-card-surface hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100 active:shadow-[1px_1px_0px_0px_#A04AFF]">
-    <div class="w-10 h-10">
-      <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd" viewBox="0 0 100 98">
-        <defs>
-          <style type="text/css">
-            <![CDATA[
-              .fil1 {fill:#FFFFFF}
-            ]]>
-          </style>
-        </defs>
-        <g>
-          <path class="fil1" d="M54 12c3,3 6,7 8,10l7 7c7,6 13,11 20,16l0 0c1,1 2,2 2,3 0,2 -3,3 -4,4 -14,10 -26,22 -36,36l-1 1c0,0 -1,0 -2,0 -1,-1 -1,-2 -2,-2 -2,-4 -5,-7 -7,-10 -2,-1 -3,-3 -4,-4 -8,-9 -17,-17 -26,-23 -1,-1 -2,-2 -1,-3 0,-1 1,-2 2,-2 12,-8 23,-19 32,-30l5 -8c1,0 2,-1 3,0 0,0 1,0 1,1l3 4zm-8 6c-2,2 -5,4 -7,6 -1,0 -1,1 -1,1 -6,5 -12,11 -16,17 -2,2 -3,3 -4,5 0,2 0,3 1,3 4,6 9,12 15,17 4,4 9,9 14,11 2,1 4,0 5,-1 7,-5 14,-11 20,-18 2,-3 5,-6 7,-10 0,-2 0,-3 -1,-4 -5,-7 -10,-13 -17,-19l0 0c-2,-2 -5,-4 -7,-6 -2,-2 -6,-4 -9,-2z"/>
-          <path class="fil1" d="M55 22c8,7 16,15 22,24 1,1 2,3 1,4 -2,2 -4,5 -6,7l0 0c-5,6 -10,11 -16,16 -3,1 -5,5 -9,3 -8,-6 -16,-14 -23,-22 -1,-1 -3,-3 -3,-5 -1,-2 1,-4 2,-6 7,-9 16,-17 24,-23 3,-2 6,1 8,2zm-6 3l-1 3 -3 11c0,0 2,0 3,0l0 0 -1 13 0 0c1,0 3,0 4,0l0 -1 0 -12 0 0 3 0c-2,-5 -3,-9 -5,-14l0 0zm-13 18c-2,1 -5,2 -5,5 1,2 2,3 4,4 7,3 17,3 26,1 1,-1 4,-2 5,-5 0,-2 -3,-3 -4,-4l0 0c0,0 1,0 2,0l0 0c-3,-1 -6,-2 -8,-2 0,1 1,2 1,3 1,0 2,0 2,0 2,0 4,1 4,3 0,1 -2,2 -3,3 -6,2 -12,2 -19,1 -1,-1 -4,-2 -4,-4 1,-3 4,-3 7,-4 -1,-1 -3,-2 -4,-3 -1,1 -3,1 -4,2zm11 12c0,4 0,9 -1,13 2,0 4,0 6,0l-1 -12 0 -1c-1,0 -2,0 -4,0z'/%3E%3C/g%3E%3C/svg%3E" />
-    </div>
-    <h2 class="font-display text-lg tracking-wider text-text-default">IEEE VIT</h2>
-  </div>
-</a>
-
-      
+        <!-- <div class="flex items-center gap-4">
+          <a href="../registrations.html">
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow disabled:pointer-events-none disabled:opacity-50 btn-gradient hover:shadow-[4px_4px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-6">
+              REGISTER
+            </button>
+          </a>
+        </div> -->
 
         <nav class="hidden items-center gap-8 lg:flex">
           <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="#">HOME</a>
@@ -478,28 +523,23 @@
           <a class="text-sm font-medium text-text-default hover:text-accent-yellow transition-colors" href="#contact">CONTACT US</a>
         </nav>
 
-        <div class="flex items-center gap-4">
-          <a href="../registrations.html">
-            <button
-            class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow disabled:pointer-events-none disabled:opacity-50 btn-gradient hover:shadow-[4px_4px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-6"
-          >
-            REGISTER
-          </button>
-          </a>
-          
-          <button class="lg:hidden text-text-default">
-            <span class="material-symbols-outlined">menu</span>
-          </button>
-        </div>
+        <div class="flex items-center gap-4 nav-register">
+  <a href="./registrations.html">
+    <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow disabled:pointer-events-none disabled:opacity-50 btn-gradient hover:shadow-[4px_4px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-6">
+      REGISTER
+    </button>
+  </a>
+</div>
+
+
       </header>
 
       <main class="flex flex-1 flex-col items-center pt-20">
         <div class="w-full max-w-7xl px-4 py-5 md:px-8">
+          <!-- Hero Section -->
           <section class="relative overflow-hidden py-16 sm:py-24">
             <div class="absolute inset-0 z-0">
-              <div
-                class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_rgba(74,74,255,0.15)_0%,_rgba(13,13,43,0)_70%)] opacity-50"
-              ></div>
+              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full bg-[radial-gradient(ellipse_at_center,_rgba(74,74,255,0.15)_0%,_rgba(13,13,43,0)_70%)] opacity-50"></div>
             </div>
 
             <div class="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-2" style="width: 99%;">
@@ -507,26 +547,20 @@
                 <span class="text-sm font-display uppercase tracking-widest text-accent-yellow">IEEE VIT PRESENTS</span>
                 <h1 class="font-display text-4xl text-text-default md:text-5xl glow-text">IEEE HACKATHON</h1>
                 <p class="text-base leading-relaxed text-text-secondary md:text-lg">
-                  24 hours of code, creativity &amp; mentorship. Build across HealthTech, EduTech, Smart Cities, FinTech, AgriTech &amp;
-                  CyberTech. Prizes, hardware support &amp; alumni judges.
+                  24 hours of code, creativity &amp; mentorship. Build across HealthTech, EduTech, Smart Cities, FinTech, AgriTech &amp; CyberTech. Prizes, hardware support &amp; alumni judges.
                 </p>
 
                 <div class="flex flex-wrap gap-4" style="margin-top: 40px;">
-
                   <a href="/registrations.html">
-                    <button
-                 class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow disabled:pointer-events-none disabled:opacity-50 btn-gradient hover:shadow-[4px_4px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-6"
-                  >
-                    REGISTER YOUR TEAM
-                  </button>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs text-primary-background transition-all duration-200 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow disabled:pointer-events-none disabled:opacity-50 btn-gradient hover:shadow-[4px_4px_0px_0px_#ffc700] active:shadow-[2px_2px_0px_0px_#ffc700] h-12 px-6">
+                      REGISTER YOUR TEAM
+                    </button>
                   </a>
                   
-                  <a  href="#about">
-                    <button    
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs bg-card-surface border-2 border-border-color hover:bg-border-color/50 text-text-default arcade-shadow-sm transition-all duration-200 transform hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100 active:shadow-[1px_1px_0px_0px_#A04AFF] h-12 px-6"               
-                  >
-                    LEARN MORE
-                  </button>
+                  <a href="#about">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded font-display tracking-wide text-xs bg-card-surface border-2 border-border-color hover:bg-border-color/50 text-text-default arcade-shadow-sm transition-all duration-200 transform hover:scale-105 hover:shadow-[4px_4px_0px_0px_#A04AFF] active:scale-100 active:shadow-[1px_1px_0px_0px_#A04AFF] h-12 px-6">
+                      LEARN MORE
+                    </button>
                   </a>
                 </div>
               </div>
@@ -559,6 +593,7 @@
             </div>
           </section>
 
+          <!-- About Section -->
           <section class="py-16 sm:py-24" id="about" style="margin-top: 10px;">
             <div class="max-w-6xl mx-auto">
               <div class="text-center mb-12">
@@ -636,20 +671,15 @@
             </div>
           </section>
 
+          <!-- Tracks Section -->
           <section class="py-16 sm:py-24" id="tracks">
             <h2 class="font-display text-3xl text-center text-text-default md:text-4xl">EXPLORE THE TRACKS</h2>
 
-            
             <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0SsmUydoqQ2OypgWuv-S6hZySEKqUtI-JuVO_2Sid5__jarseLyfAFdEX3vZODux2AP6JWPu0Fv6VQJ6wib8a-m10b-hSBJA1zKXHbJMyoXvI6wp58XE_Xirsd947sIVsSDpqp0UloGGGJGfJYPPk3-K_3_NCEGuJT_dOXemijn-OOLx0AET_WzRPUzqbna1EHgnfdq-Yecu9YD5RmMSxutaCGAyjHFLlUByFI749IOwgYZv3r5A4H2Tv0FdWpxWkMCqN5crstjp0");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0SsmUydoqQ2OypgWuv-S6hZySEKqUtI-JuVO_2Sid5__jarseLyfAFdEX3vZODux2AP6JWPu0Fv6VQJ6wib8a-m10b-hSBJA1zKXHbJMyoXvI6wp58XE_Xirsd947sIVsSDpqp0UloGGGJGfJYPPk3-K_3_NCEGuJT_dOXemijn-OOLx0AET_WzRPUzqbna1EHgnfdq-Yecu9YD5RmMSxutaCGAyjHFLlUByFI749IOwgYZv3r5A4H2Tv0FdWpxWkMCqN5crstjp0");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">HealthTech</p>
                   <p class="mt-2 text-sm text-text-secondary">Innovate in healthcare with technology that saves lives.</p>
@@ -658,12 +688,8 @@
 
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARZ1IT9YrbDMkMpkYlZ5GvZaVHy13Gxlydg4L582JzkHXPKskx2bVTCJzH4va10rhuPq8--DQqNnOurzuKe1IMBf5hjCmrEiuXo9VADN8w1UURerY6dSEOTmfhb8Szc3vXWnLMBDLx08P7tRRY30-3f3AZ3KIYdhDVveV0jEfLRgRQgFALsEyGVF96CMxZ0kPwpGHIXpg45A_kAZBox3KCgj_CcSid6QVnxdDFijGsyKJ1tvrcCO7EZCtsNj_aIBdkoZqTGpDqijdT");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARZ1IT9YrbDMkMpkYlZ5GvZaVHy13Gxlydg4L582JzkHXPKskx2bVTCJzH4va10rhuPq8--DQqNnOurzuKe1IMBf5hjCmrEiuXo9VADN8w1UURerY6dSEOTmfhb8Szc3vXWnLMBDLx08P7tRRY30-3f3AZ3KIYdhDVveV0jEfLRgRQgFALsEyGVF96CMxZ0kPwpGHIXpg45A_kAZBox3KCgj_CcSid6QVnxdDFijGsyKJ1tvrcCO7EZCtsNj_aIBdkoZqTGpDqijdT");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">EduTech</p>
                   <p class="mt-2 text-sm text-text-secondary">Transforming education for the next generation.</p>
@@ -672,12 +698,8 @@
 
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIondonrQxf-x5F-Z0eC28swzNxyRiAJsSMgmFlmBCFJumPzAwPa5GfSjeVxijnEKcKsujvQd7WB4WPg84MpkZesFJD1xLuJMMX65--DG2L7joZ-UZgXOkhiuO5yh4loh7VzqxF7xbn_8wM6hca9aho-c2_nIlsMnArj76Yvcz7aYe0iU2fWF7Uw4lXLfT7BWeltcXfxkQXI3YmuTzc-lG9UjsK5PLuDrM5o8m1hsRKohHdBvPxKX12UBs7TGRL36sAz3poARpSm3T");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIondonrQxf-x5F-Z0eC28swzNxyRiAJsSMgmFlmBCFJumPzAwPa5GfSjeVxijnEKcKsujvQd7WB4WPg84MpkZesFJD1xLuJMMX65--DG2L7joZ-UZgXOkhiuO5yh4loh7VzqxF7xbn_8wM6hca9aho-c2_nIlsMnArj76Yvcz7aYe0iU2fWF7Uw4lXLfT7BWeltcXfxkQXI3YmuTzc-lG9UjsK5PLuDrM5o8m1hsRKohHdBvPxKX12UBs7TGRL36sAz3poARpSm3T");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">Smart Cities</p>
                   <p class="mt-2 text-sm text-text-secondary">Building intelligent and sustainable urban environments.</p>
@@ -686,12 +708,8 @@
 
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY3NqiZDWi0vPzbdEbplaZ1UDjwb2QCvPHCVk_PJmFLyxwlQYfnmn_Ve9alQh_Dpla3CocTvW9grNJSlGmTqu_OiXRY2nihthHLe--A7lX5vU5tAoS6Ma2t9MjTFWfq3NmFuypBhs5H482e37I1dhJLBwiL-3e0ZN1kA9coEBJhepkaneOZbTarWRqStf1HTy3Urkha0I67RdrY3nGT7u4RBl4wQyF1CbHEN3aWJr0_aifwXI_kFqxfTwthfoqGvewLT8ZeqUpnbOZ");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBY3NqiZDWi0vPzbdEbplaZ1UDjwb2QCvPHCVk_PJmFLyxwlQYfnmn_Ve9alQh_Dpla3CocTvW9grNJSlGmTqu_OiXRY2nihthHLe--A7lX5vU5tAoS6Ma2t9MjTFWfq3NmFuypBhs5H482e37I1dhJLBwiL-3e0ZN1kA9coEBJhepkaneOZbTarWRqStf1HTy3Urkha0I67RdrY3nGT7u4RBl4wQyF1CbHEN3aWJr0_aifwXI_kFqxfTwthfoqGvewLT8ZeqUpnbOZ");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">FinTech</p>
                   <p class="mt-2 text-sm text-text-secondary">Revolutionizing financial services with secure solutions.</p>
@@ -700,12 +718,8 @@
 
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMfQYi2vUtfpn5ntgUJJH-bUaOmCxw1Unb1yGrkNYooJmc2hl0D-tS2nrdiuzZ9SzTksok_Or9Z902axKv6x6iRg2ZEMTC2Ngjk0Esg0twztl9gZd4QFypmwY7MwULCvRUFWhBPNBgq7MbFun9a1RNpsIpHYLq3_oAx_QA93gULx_Q7pcdDFtFn6tN5Cg6lgkKyXpJtFiSYinoq40Kn4xd_rKHW0HSprcJn3KFEcYyi8HEPVGZqxsytXcki8sOnvtp6T-65MfsF3yi");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMfQYi2vUtfpn5ntgUJJH-bUaOmCxw1Unb1yGrkNYooJmc2hl0D-tS2nrdiuzZ9SzTksok_Or9Z902axKv6x6iRg2ZEMTC2Ngjk0Esg0twztl9gZd4QFypmwY7MwULCvRUFWhBPNBgq7MbFun9a1RNpsIpHYLq3_oAx_QA93gULx_Q7pcdDFtFn6tN5Cg6lgkKyXpJtFiSYinoq40Kn4xd_rKHW0HSprcJn3KFEcYyi8HEPVGZqxsytXcki8sOnvtp6T-65MfsF3yi");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">AgriTech</p>
                   <p class="mt-2 text-sm text-text-secondary">Advancing agriculture through data and automation.</p>
@@ -714,12 +728,8 @@
 
               <div class="group flex cursor-pointer flex-col gap-4 rounded-lg bg-card-surface border-2 border-border-color arcade-shadow p-6 transition-all duration-300 hover:-translate-y-2 hover:arcade-shadow-hover">
                 <div class="aspect-video w-full overflow-hidden rounded-md">
-                  <div
-                    class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCG7vl9aUFHPETOCvpEVm0Yb3DBaXqHZD7q3fiqiDU1BHTwXbUubseIs5_ZLmntPLL4FSbPmp9atEXs4t5QN7p8xb7LSSWpJ2NmIwPAkIuoL6lqRrTHA7X7Gs0elECwp1AbxjhKN1758Ru02b_du79PM8jbdbP2pZsFTO5zB7vi5WuP3di5VfTrze0gUzR3cLdyE9NCdGZ2-75Ohqr3x1YG7DkhOFiyd-A91PXUvrkcqN3vEKJneWeuh_lz_ESof4BaL-F9bCtKmWtE");'
-                  ></div>
+                  <div class="h-full w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCG7vl9aUFHPETOCvpEVm0Yb3DBaXqHZD7q3fiqiDU1BHTwXbUubseIs5_ZLmntPLL4FSbPmp9atEXs4t5QN7p8xb7LSSWpJ2NmIwPAkIuoL6lqRrTHA7X7Gs0elECwp1AbxjhKN1758Ru02b_du79PM8jbdbP2pZsFTO5zB7vi5WuP3di5VfTrze0gUzR3cLdyE9NCdGZ2-75Ohqr3x1YG7DkhOFiyd-A91PXUvrkcqN3vEKJneWeuh_lz_ESof4BaL-F9bCtKmWtE");'></div>
                 </div>
-
                 <div>
                   <p class="text-xl font-bold text-text-default">CyberTech</p>
                   <p class="mt-2 text-sm text-text-secondary">Protecting digital assets and infrastructure.</p>
@@ -728,63 +738,65 @@
             </div>
           </section>
 
+          <!-- Timeline Section -->
           <section class="py-16 sm:py-24" id="timeline">
-            <h2 class="font-display text-3xl text-center text-text-default md:text-4xl" >EVENT TIMELINE</h2>
+            <h2 class="font-display text-3xl text-center text-text-default md:text-4xl">EVENT TIMELINE</h2>
 
             <div style="margin-top: 50px; display: flex; align-items: center; justify-content: center;">
               <div>
                 <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 1 - 9:30 AM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Inauguration &amp; Hack Begins</h3>
-                <p class="text-text-secondary mt-2">Opening ceremony followed by theme introduction and start of the 24-hour coding marathon!</p>
-              </div>
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 1 - 9:30 AM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Inauguration &amp; Hack Begins</h3>
+                  <p class="text-text-secondary mt-2">Opening ceremony followed by theme introduction and start of the 24-hour coding marathon!</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 1 - 6:30 PM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Review 1 - Progress Check</h3>
-                <p class="text-text-secondary mt-2">First review session to assess team progress and provide guidance. No eliminations.</p>
-              </div>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 1 - 6:30 PM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Review 1 - Progress Check</h3>
+                  <p class="text-text-secondary mt-2">First review session to assess team progress and provide guidance. No eliminations.</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 2 - 10:00 AM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Alumni Pitch Round</h3>
-                <p class="text-text-secondary mt-2">Teams present their solutions to invited alumni judges.</p>
-              </div>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 2 - 10:00 AM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Alumni Pitch Round</h3>
+                  <p class="text-text-secondary mt-2">Teams present their solutions to invited alumni judges.</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 2 - 3:30 PM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Final Review &amp; Top 10 Selection</h3>
-                <p class="text-text-secondary mt-2">Organizers evaluate all projects and shortlist Top 10 teams for final presentations.</p>
-              </div>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 2 - 3:30 PM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Final Review &amp; Top 10 Selection</h3>
+                  <p class="text-text-secondary mt-2">Organizers evaluate all projects and shortlist Top 10 teams for final presentations.</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 2 - 5:00 PM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Final Stage Presentations</h3>
-                <p class="text-text-secondary mt-2">Top 10 teams present on stage to alumni judges who select the Top 3 winners.</p>
-              </div>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 2 - 5:00 PM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Final Stage Presentations</h3>
+                  <p class="text-text-secondary mt-2">Top 10 teams present on stage to alumni judges who select the Top 3 winners.</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 2 - 7:00 PM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Valedictory Ceremony &amp; Winners</h3>
-                <p class="text-text-secondary mt-2">Closing ceremony with winner announcements and celebration of achievements!</p>
-              </div>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 2 - 7:00 PM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Valedictory Ceremony &amp; Winners</h3>
+                  <p class="text-text-secondary mt-2">Closing ceremony with winner announcements and celebration of achievements!</p>
+                </div>
 
-              <div class="timeline-item relative pl-8 pb-12">
-                <div class="timeline-dot"></div>
-                <p class="text-sm font-semibold text-accent-yellow">Day 2 - 8:00 PM</p>
-                <h3 class="text-xl font-bold text-text-default mt-1">Networking Dinner</h3>
-                <p class="text-text-secondary mt-2">Dinner for all participants, mentors, and judges. Celebrate the end of a successful hackathon!</p>
+                <div class="timeline-item relative pl-8 pb-12">
+                  <div class="timeline-dot"></div>
+                  <p class="text-sm font-semibold text-accent-yellow">Day 2 - 8:00 PM</p>
+                  <h3 class="text-xl font-bold text-text-default mt-1">Networking Dinner</h3>
+                  <p class="text-text-secondary mt-2">Dinner for all participants, mentors, and judges. Celebrate the end of a successful hackathon!</p>
+                </div>
               </div>
-              </div>              
             </div>
           </section>
 
+          <!-- Sponsors Section -->
           <section class="py-16 sm:py-24" id="sponsors" style="margin-top: -50px;">
             <h2 class="font-display text-3xl text-center text-text-default md:text-4xl">OUR ESTEEMED SPONSOR</h2>
 
@@ -797,10 +809,7 @@
                     <div class="relative">
                       <div class="absolute inset-0 bg-accent-yellow/20 blur-xl rounded-full"></div>
                       <div class="relative bg-primary-background p-6 rounded-lg border-2 border-accent-yellow transform transition-transform duration-300 hover:scale-105">
-                        <img  style="border-radius: 10px;"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6w7cNxalkFJS5eojiTw__UWxFLAE_nbFEGw&s" 
-                          class="h-32 w-auto"
-                        />
+                        <img style="border-radius: 10px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6w7cNxalkFJS5eojiTw__UWxFLAE_nbFEGw&s" class="h-32 w-auto" />
                       </div>
                     </div>
                   </div>
@@ -846,11 +855,12 @@
             </div>
           </section>
 
+          <!-- Contact Section -->
           <section class="py-16 sm:py-24" id="contact">
             <h2 class="font-display text-3xl text-center text-text-default md:text-4xl">CONTACT US</h2>
 
-            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start" style="height: 100%;">
-              <div class="p-6 md:p-8 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow" >
+            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+              <div class="p-6 md:p-8 bg-card-surface rounded-lg border-2 border-border-color arcade-shadow">
                 <h3 class="font-display text-lg text-accent-yellow tracking-wide mb-4">SEND US A MESSAGE</h3>
                 
                 <form class="space-y-6" id="contact-form">
@@ -979,14 +989,16 @@
         const container = document.getElementById('interactive-bg');
         if (!container) return;
         
-        cols = Math.ceil(window.innerWidth / squareSize);
-        rows = Math.ceil(window.innerHeight / squareSize);
+        // Adjust grid size for mobile
+        const currentSquareSize = window.innerWidth < 768 ? (window.innerWidth < 640 ? 30 : 40) : 50;
+        cols = Math.ceil(window.innerWidth / currentSquareSize);
+        rows = Math.ceil(window.innerHeight / currentSquareSize);
         
         container.innerHTML = '';
         gridSquares = [];
         container.style.display = 'grid';
-        container.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}px)`;
-        container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
+        container.style.gridTemplateColumns = `repeat(${cols}, ${currentSquareSize}px)`;
+        container.style.gridTemplateRows = `repeat(${rows}, ${currentSquareSize}px)`;
         
         for (let i = 0; i < cols * rows; i++) {
           const square = document.createElement('div');
@@ -996,13 +1008,13 @@
           gridSquares.push(square);
         }
         
-        // Start random glow effect
         startRandomGlow();
       }
 
       function getTileFromPosition(x, y) {
-        const col = Math.floor(x / squareSize);
-        const row = Math.floor(y / squareSize);
+        const currentSquareSize = window.innerWidth < 768 ? (window.innerWidth < 640 ? 30 : 40) : 50;
+        const col = Math.floor(x / currentSquareSize);
+        const row = Math.floor(y / currentSquareSize);
         
         if (col >= 0 && col < cols && row >= 0 && row < rows) {
           return row * cols + col;
@@ -1014,7 +1026,6 @@
         const tileIndex = getTileFromPosition(e.clientX, e.clientY);
         
         if (tileIndex !== -1 && tileIndex !== lastHoveredIndex) {
-          // Remove hover from previous tile
           if (lastHoveredIndex !== -1 && gridSquares[lastHoveredIndex]) {
             gridSquares[lastHoveredIndex].classList.remove('hovered');
             gridSquares[lastHoveredIndex].classList.add('fade-out');
@@ -1025,7 +1036,6 @@
             }, 500);
           }
           
-          // Add hover to current tile
           if (gridSquares[tileIndex]) {
             gridSquares[tileIndex].classList.add('hovered');
           }
@@ -1037,7 +1047,6 @@
       function activateRandomGlow() {
         if (gridSquares.length === 0) return;
         
-        // Number of tiles to glow simultaneously (5-12 tiles)
         const numTiles = Math.floor(Math.random() * 8) + 5;
         
         for (let i = 0; i < numTiles; i++) {
@@ -1045,12 +1054,10 @@
           const tile = gridSquares[randomIndex];
           
           if (tile && !tile.classList.contains('hovered')) {
-            // Pick a random color
             const randomColor = glowColors[Math.floor(Math.random() * glowColors.length)];
             
             tile.classList.add(randomColor, 'random-glow');
             
-            // Remove the glow after animation completes
             setTimeout(() => {
               tile.classList.remove(randomColor, 'random-glow');
             }, 2500);
@@ -1059,18 +1066,15 @@
       }
 
       function startRandomGlow() {
-        // Clear any existing interval
         if (randomGlowInterval) {
           clearInterval(randomGlowInterval);
         }
         
-        // Activate random glow every 1.5-3 seconds
         randomGlowInterval = setInterval(() => {
           activateRandomGlow();
         }, Math.random() * 1500 + 1500);
       }
 
-      // Floating particles
       function createFloatingParticles() {
         const container = document.getElementById('particles-container');
         if (!container) return;
@@ -1088,7 +1092,6 @@
         }
       }
 
-      // Cursor trail effect
       let trails = [];
       let trailIndex = 0;
       
@@ -1115,7 +1118,6 @@
         trailIndex = (trailIndex + 1) % trails.length;
       }
 
-      // Initialize everything
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
           createInteractiveGrid();
@@ -1132,7 +1134,6 @@
         document.addEventListener('mousemove', updateCursorTrail);
       }
       
-      // Handle window resize
       let resizeTimer;
       window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
@@ -1143,14 +1144,10 @@
       });
     </script>
 
-    <!-- Main JavaScript for Countdown and Forms -->
     <script>
-      // API Base URL - Change this when deploying
       const API_BASE_URL = 'http://localhost:3000/api';
 
-      // Countdown Timer
       function updateCountdown() {
-        // Try to fetch from server first
         fetch(`${API_BASE_URL}/countdown`)
           .then(response => response.json())
           .then(data => {
@@ -1158,7 +1155,6 @@
               document.querySelectorAll('.countdown-number').forEach(el => {
                 el.textContent = '00';
               });
-              // Optionally disable registration
               const registerBtns = document.querySelectorAll('button, a[href*="registration"]');
               registerBtns.forEach(btn => {
                 if (btn.textContent.includes('REGISTER')) {
@@ -1173,7 +1169,6 @@
               return;
             }
 
-            // Update countdown display
             const daysEl = document.querySelector('[data-days]');
             const hoursEl = document.querySelector('[data-hours]');
             const minutesEl = document.querySelector('[data-minutes]');
@@ -1190,7 +1185,6 @@
           });
       }
 
-      // Fallback client-side countdown
       function calculateCountdownLocally() {
         const targetDate = new Date('2025-12-05T23:59:59+05:30');
         const now = new Date();
@@ -1219,7 +1213,6 @@
         if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
       }
 
-      // Contact Form Handler
       const contactForm = document.getElementById('contact-form');
       if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -1264,12 +1257,10 @@
         });
       }
 
-      // Start countdown timer
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
       console.log('✅ IEEE Hackathon 2025 - Website Initialized');
     </script>
-    <script src="/js/main.js"></script>
   </body>
 </html>

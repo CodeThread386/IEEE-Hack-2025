@@ -12,6 +12,80 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet" />
     
     <style type="text/tailwindcss">
+
+      /* === Responsive adjustments (mobile & tablet) === */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* reduce card padding for small screens */
+  .card-mega-glow {
+    padding: 1rem !important;
+  }
+
+  /* tighter spacing inside content wrapper */
+  .content-wrapper {
+    padding: 1rem !important;
+  }
+
+  /* scale text and icons gracefully */
+  h1.font-display {
+    font-size: 1.4rem !important;
+    line-height: 1.6rem !important;
+  }
+
+  p.text-base, p.text-lg {
+    font-size: 0.95rem !important;
+  }
+
+  .material-symbols-outlined {
+    font-size: 36px !important;
+  }
+
+  /* stack info cards */
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* stack action buttons neatly */
+  .flex.sm\\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  button {
+    width: 100% !important;
+  }
+
+  /* make trophy smaller on mobile */
+  .float-animation span {
+    font-size: 48px !important;
+  }
+}
+
+/* Ultra-small phones (<410px) */
+@media (max-width: 410px) {
+  html, body {
+    min-width: 365px;
+  }
+
+  .content-wrapper {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  h1.font-display {
+    font-size: 1.2rem !important;
+  }
+
+  .card-mega-glow {
+    border-width: 1.5px !important;
+  }
+}
+
+
       @layer base {
         :root {
           --primary-background: #0D0D2B;
